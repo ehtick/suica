@@ -7,6 +7,7 @@
 import * as THREE from 'three';
 import './suica-main.js';
 import { degrees, radians, random, splane, spline } from './suica-globals.js';
+import { Suica } from './suica-main.js';
 
 window.radians = radians;
 window.degrees = degrees;
@@ -15,6 +16,8 @@ window.spline = spline;
 window.splane = splane;
 
 window.THREE = THREE;
+
+window.Suica = Suica;
 
 // old: Capture( suica, name, time, fps, format, skipFrames )
 // new: Capture( suica, name, time, fps, format, skipTime ) - times in seconds

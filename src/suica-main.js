@@ -37,7 +37,7 @@ import { Construct } from './suica-construct.js';
 const DEBUG_CALLS = false;
 const TEST_MODE = typeof SUICA_TEST_MODE !== 'undefined';
 
-const SUICA_VERSION = '3.0.2';
+const SUICA_VERSION = '3.0.3';
 
 
 // show suica version
@@ -636,6 +636,10 @@ class Suica {
 				Suica.onPointerMoveUpdate( );
 
 			that.render( );
+			
+			
+			if( that.aftertime )
+				that.aftertime( time, time-that.lastTime );
 
 			//			if ( that.capturer ) that.capturer.capture( );
 
@@ -1586,5 +1590,11 @@ for( var i=0; i<htmlSuicas.length; i++ )
 	suica.parser.parseTags();
 }
 */
+
+for ( var classObject of [ Point, Line, Square, Cube, Polygon, Sphere, Group, Tube, Surface, Prism, Cylinder, Cone, Pyramid, Circle, Convex, Extrude, Model, Construct, Text3D, Capture ])
+{
+	Suica[ classObject.name ] = classObject;
+}
+
 
 export { Suica };
